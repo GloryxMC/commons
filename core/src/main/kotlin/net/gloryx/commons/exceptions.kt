@@ -1,5 +1,7 @@
 package net.gloryx.commons
 
+import net.kyori.adventure.key.Key
+
 /**
  * A try statement shortened to an inline lambda function.
  *
@@ -14,3 +16,7 @@ package net.gloryx.commons
  * @author nothen
  */
 inline fun <T : Any?> try_(fn: () -> T): T? = try { fn() } catch (e: Exception) { null }
+
+fun y() {
+
+}

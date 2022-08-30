@@ -13,6 +13,10 @@ dependencies {
     api("net.kyori:adventure-api:4.11.0")
     api("net.kyori:adventure-extra-kotlin:4.11.0")
     api("de.themoep:minedown-adventure:1.7.1-SNAPSHOT")
+    implementation("net.kyori:adventure-text-serializer-gson:4.11.0")
+    api("net.gloryx:oknamer:0.1.01")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("com.mojang:brigadier:1.0.17")
 }
 val javadoc: Javadoc by tasks
 

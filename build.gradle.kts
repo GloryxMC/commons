@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "net.gloryx"
-version = "0.1.5"
+version = "0.1.52-SNAPSHOT"
 
 repositories {
     mavenCentral()

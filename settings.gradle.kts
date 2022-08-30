@@ -7,7 +7,7 @@ pluginManagement {
     }
     resolutionStrategy {
         eachPlugin {
-            if (requested.id.id == "org.spongepowered.mixin") useModule("org.spongepowered:mixingradle:${requested.version ?: "0.7.+"}")
+            if (requested.id.id == "org.spongepowered.mixin") useModule("org.spongepowered:mixingradle:${requested.version}")
         }
     }
 }
@@ -15,3 +15,5 @@ pluginManagement {
 rootProject.name = "commons"
 include(":core")
 include(":minecraft")
+include(":mods:forge")
+//findProject(":mods:forge")?.name = "forge"
