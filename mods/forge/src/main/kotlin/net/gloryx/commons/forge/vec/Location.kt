@@ -3,7 +3,6 @@ package net.gloryx.commons.forge.vec
 import net.gloryx.commons.kotlinlove.vec.Location
 import net.minecraft.command.CommandSource
 import net.minecraft.command.arguments.ILocationArgument
-import net.minecraft.command.arguments.LocalLocationArgument
 import net.minecraft.entity.Entity
 import net.minecraft.util.math.vector.Vector2f
 import net.minecraft.util.math.vector.Vector3d

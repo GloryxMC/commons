@@ -39,6 +39,8 @@ publishing {
             groupId = "${rootProject.group}.minecraft"
             version = "0.1.53-SNAPSHOT"
 
+            fg.component(this)
+
             artifact(javadocJar)
             artifact(sourcesJar)
         }
