@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         maven("https://repo.papermc.io/repository/maven-public/")
         maven("https://repo.spongepowered.org/repository/maven-public/")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         mavenCentral()
     }
     resolutionStrategy {

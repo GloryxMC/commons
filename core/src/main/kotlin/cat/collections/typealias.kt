@@ -1,4 +1,4 @@
-package net.gloryx.commons.jhate.collections
+package cat.collections
 
 typealias Filter<T> = (T) -> Boolean
 typealias Replace<T> = (T) -> T

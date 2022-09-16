@@ -1,4 +1,4 @@
-package net.gloryx.commons.async
+package cat.async
 
 import kotlinx.coroutines.flow.*
 import java.util.concurrent.atomic.AtomicBoolean

@@ -1,0 +1,9 @@
+{
+  "package": "net.gloryx.commons.forge.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.gloryx.refmap.json",
+  "minVersion": "1.16.5",
+  "mixins": [
+    "EffectInstanceMixin"
+  ]
+}

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.utils.addToStdlib.cast
+
 plugins {
     id("java")
     kotlin("jvm")
@@ -10,6 +12,7 @@ version = rootProject.version
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 
 dependencies {
+    compileOnly(kotlin("stdlib"))
     api("net.kyori:adventure-api:4.11.0")
     api("net.kyori:adventure-extra-kotlin:4.11.0")
     api("de.themoep:minedown-adventure:1.7.1-SNAPSHOT")
@@ -41,7 +44,7 @@ publishing {
     }
     publications {
         create("maven", MavenPublication::class) {
-            artifactId = "commons"
+            artifactId = "cat"
             from(components["java"])
             artifact(javadocJar)
             artifact(sourcesJar)

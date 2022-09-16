@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package net.gloryx.commons.kotlinlove.delegates
+package cat.delegates
 
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KCallable
@@ -19,14 +19,3 @@ fun <T> KCallable<T>.calling(vararg args: Any): ReadOnlyProperty<Any?, T> =
     ReadOnlyProperty { _, _ -> call(*args) }
 
 val <T> KCallable<T>.calling get() = ReadOnlyProperty<Any?, T> { _, _ -> call() }
-
-@Suppress("ClassName")
-private object example {
-    val something by ::noargfunc.calling()
-
-    val somethingGetter get() = noargfunc()
-
-    fun noargfunc() {
-
-    }
-}

@@ -1,5 +1,5 @@
 @file:OptIn(InternalCoroutinesApi::class)
-package net.gloryx.commons.async
+package cat.async
 
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.concurrent.CompletableFuture
