@@ -18,3 +18,4 @@ include(":core")
 include(":minecraft")
 include(":mods:forge")
 //findProject(":mods:forge")?.name = "forge"
+include("ui")

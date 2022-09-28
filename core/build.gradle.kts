@@ -9,7 +9,7 @@ plugins {
 group = "net.gloryx"
 version = rootProject.version
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 
 dependencies {
     compileOnly(kotlin("stdlib"))
@@ -20,6 +20,8 @@ dependencies {
     api("net.gloryx:oknamer:0.1.01")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("com.mojang:brigadier:1.0.17")
+    api("org.spongepowered:configurate-core:4.1.2")
+    api("org.spongepowered:configurate-hocon:4.1.2")
 }
 val javadoc: Javadoc by tasks
 
