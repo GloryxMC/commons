@@ -11,6 +11,9 @@ pluginManagement {
             if (requested.id.id == "org.spongepowered.mixin") useModule("org.spongepowered:mixingradle:${requested.version}")
         }
     }
+    plugins {
+        id("org.jetbrains.compose").version(extra["compose.version"] as String) apply false
+    }
 }
 
 rootProject.name = "commons"

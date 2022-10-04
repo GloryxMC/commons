@@ -23,6 +23,8 @@ val Any?.void get() = Unit
  */
 fun <T> Any?.void(value: T) = value
 
+inline fun just(fn: () -> Unit): Unit = fn()
+
 fun String.camelToSnake(): String {
     // Empty String
     var result = ""

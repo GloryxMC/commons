@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.utils.addToStdlib.safeAs
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version "+"
+    id("org.jetbrains.compose")
     `maven-publish`
     java
 }
@@ -19,21 +19,21 @@ repositories {
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
+private val composeVersion = extra["compose.version"] as String
 private val compose = org.jetbrains.compose.ComposePlugin.Dependencies
-val common = listOf(compose.runtime, compose.ui, compose.foundation, compose.material, compose.uiTooling)
+val common = listOf(compose.runtime, compose.ui, compose.foundation, compose.material, compose.uiTooling, compose.preview)
 val desktop = listOf(
     compose.desktop.currentOs,
-    "org.jetbrains.compose.foundation:foundation-desktop:1.1.0",
-    "org.jetbrains.compose.ui:ui-geometry-desktop:1.1.0",
-    "org.jetbrains.compose.ui:ui-graphics-desktop:1.1.0"
+    "org.jetbrains.compose.foundation:foundation-desktop:$composeVersion",
+    "org.jetbrains.compose.ui:ui-geometry-desktop:$composeVersion",
+    "org.jetbrains.compose.ui:ui-graphics-desktop:$composeVersion"
 )
 
 val cat = project(":core")
 kotlin {
     jvm {
         compilations.all {
-
-            kotlinOptions.jvmTarget = "17"
+            kotlinOptions.jvmTarget = "11"
         }
         withJava()
     }
