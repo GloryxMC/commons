@@ -1,231 +1,508 @@
-@file:Suppress("unused")
-
+@file:Suppress("unused", "nothing_to_inline")
 package catfish.winder.colors
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.Stable
 
-inline fun color(x: Int) = Color(x.toLong() or 0x00000000FF000000)
+/**
+ * Converts color [x] in RGBA to a Compose [Color]
+ *
+ * Note: [x] is [Int] for intellisense
+ * @param x the color in RGBA notation
+ * @return [Color] from [x]
+ */
+inline fun color(x: Int) = Color(
+    value = ((x.toLong() or 0x00000000FF000000).toULong() and 0xffffffffUL) shl 32
+)
+/// Default
+@Stable
+inline val Transparent get() = Color.Transparent
 
-inline val Transparent get() = color(0x00000000)
-inline val Black get() = color(0x000000)
-inline val White get() = color(0xfff000)
-inline val Slate50 get() = color(0xf8fafc)
-inline val Slate100 get() = color(0xf1f5f9)
-inline val Slate200 get() = color(0xe2e8f0)
-inline val Slate300 get() = color(0xcbd5e1)
-inline val Slate400 get() = color(0x94a3b8)
-inline val Slate500 get() = color(0x64748b)
-inline val Slate600 get() = color(0x475569)
-inline val Slate700 get() = color(0x334155)
-inline val Slate800 get() = color(0x1e293b)
-inline val Slate900 get() = color(0x0f172a)
-inline val Gray50 get() = color(0xf9fafb)
-inline val Gray100 get() = color(0xf3f4f6)
-inline val Gray200 get() = color(0xe5e7eb)
-inline val Gray300 get() = color(0xd1d5db)
-inline val Gray400 get() = color(0x9ca3af)
-inline val Gray500 get() = color(0x6b7280)
-inline val Gray600 get() = color(0x4b5563)
-inline val Gray700 get() = color(0x374151)
-inline val Gray800 get() = color(0x1f2937)
-inline val Gray900 get() = color(0x111827)
-inline val Zinc50 get() = color(0xfafafa)
-inline val Zinc100 get() = color(0xf4f4f5)
-inline val Zinc200 get() = color(0xe4e4e7)
-inline val Zinc300 get() = color(0xd4d4d8)
-inline val Zinc400 get() = color(0xa1a1aa)
-inline val Zinc500 get() = color(0x71717a)
-inline val Zinc600 get() = color(0x52525b)
-inline val Zinc700 get() = color(0x3f3f46)
-inline val Zinc800 get() = color(0x27272a)
-inline val Zinc900 get() = color(0x18181b)
-inline val Neutral50 get() = color(0xfafafa)
-inline val Neutral100 get() = color(0xf5f5f5)
-inline val Neutral200 get() = color(0xe5e5e5)
-inline val Neutral300 get() = color(0xd4d4d4)
-inline val Neutral400 get() = color(0xa3a3a3)
-inline val Neutral500 get() = color(0x737373)
-inline val Neutral600 get() = color(0x525252)
-inline val Neutral700 get() = color(0x404040)
-inline val Neutral800 get() = color(0x262626)
-inline val Neutral900 get() = color(0x171717)
-inline val Stone50 get() = color(0xfafaf9)
-inline val Stone100 get() = color(0xf5f5f4)
-inline val Stone200 get() = color(0xe7e5e4)
-inline val Stone300 get() = color(0xd6d3d1)
-inline val Stone400 get() = color(0xa8a29e)
-inline val Stone500 get() = color(0x78716c)
-inline val Stone600 get() = color(0x57534e)
-inline val Stone700 get() = color(0x44403c)
-inline val Stone800 get() = color(0x292524)
-inline val Stone900 get() = color(0x1c1917)
-inline val Red50 get() = color(0xfef2f2)
-inline val Red100 get() = color(0xfee2e2)
-inline val Red200 get() = color(0xfecaca)
-inline val Red300 get() = color(0xfca5a5)
-inline val Red400 get() = color(0xf87171)
-inline val Red500 get() = color(0xef4444)
-inline val Red600 get() = color(0xdc2626)
-inline val Red700 get() = color(0xb91c1c)
-inline val Red800 get() = color(0x991b1b)
-inline val Red900 get() = color(0x7f1d1d)
-inline val Orange50 get() = color(0xfff7ed)
-inline val Orange100 get() = color(0xffedd5)
-inline val Orange200 get() = color(0xfed7aa)
-inline val Orange300 get() = color(0xfdba74)
-inline val Orange400 get() = color(0xfb923c)
-inline val Orange500 get() = color(0xf97316)
-inline val Orange600 get() = color(0xea580c)
-inline val Orange700 get() = color(0xc2410c)
-inline val Orange800 get() = color(0x9a3412)
-inline val Orange900 get() = color(0x7c2d12)
-inline val Amber50 get() = color(0xfffbeb)
-inline val Amber100 get() = color(0xfef3c7)
-inline val Amber200 get() = color(0xfde68a)
-inline val Amber300 get() = color(0xfcd34d)
-inline val Amber400 get() = color(0xfbbf24)
-inline val Amber500 get() = color(0xf59e0b)
-inline val Amber600 get() = color(0xd97706)
-inline val Amber700 get() = color(0xb45309)
-inline val Amber800 get() = color(0x92400e)
-inline val Amber900 get() = color(0x78350f)
-inline val Yellow50 get() = color(0xfefce8)
-inline val Yellow100 get() = color(0xfef9c3)
-inline val Yellow200 get() = color(0xfef08a)
-inline val Yellow300 get() = color(0xfde047)
-inline val Yellow400 get() = color(0xfacc15)
-inline val Yellow500 get() = color(0xeab308)
-inline val Yellow600 get() = color(0xca8a04)
-inline val Yellow700 get() = color(0xa16207)
-inline val Yellow800 get() = color(0x854d0e)
-inline val Yellow900 get() = color(0x713f12)
-inline val Lime50 get() = color(0xf7fee7)
-inline val Lime100 get() = color(0xecfccb)
-inline val Lime200 get() = color(0xd9f99d)
-inline val Lime300 get() = color(0xbef264)
-inline val Lime400 get() = color(0xa3e635)
-inline val Lime500 get() = color(0x84cc16)
-inline val Lime600 get() = color(0x65a30d)
-inline val Lime700 get() = color(0x4d7c0f)
-inline val Lime800 get() = color(0x3f6212)
-inline val Lime900 get() = color(0x365314)
-inline val Green50 get() = color(0xf0fdf4)
-inline val Green100 get() = color(0xdcfce7)
-inline val Green200 get() = color(0xbbf7d0)
-inline val Green300 get() = color(0x86efac)
-inline val Green400 get() = color(0x4ade80)
-inline val Green500 get() = color(0x22c55e)
-inline val Green600 get() = color(0x16a34a)
-inline val Green700 get() = color(0x15803d)
-inline val Green800 get() = color(0x166534)
-inline val Green900 get() = color(0x14532d)
-inline val Emerald50 get() = color(0xecfdf5)
-inline val Emerald100 get() = color(0xd1fae5)
-inline val Emerald200 get() = color(0xa7f3d0)
-inline val Emerald300 get() = color(0x6ee7b7)
-inline val Emerald400 get() = color(0x34d399)
-inline val Emerald500 get() = color(0x10b981)
-inline val Emerald600 get() = color(0x059669)
-inline val Emerald700 get() = color(0x047857)
-inline val Emerald800 get() = color(0x065f46)
-inline val Emerald900 get() = color(0x064e3b)
-inline val Teal50 get() = color(0xf0fdfa)
-inline val Teal100 get() = color(0xccfbf1)
-inline val Teal200 get() = color(0x99f6e4)
-inline val Teal300 get() = color(0x5eead4)
-inline val Teal400 get() = color(0x2dd4bf)
-inline val Teal500 get() = color(0x14b8a6)
-inline val Teal600 get() = color(0x0d9488)
-inline val Teal700 get() = color(0x0f766e)
-inline val Teal800 get() = color(0x115e59)
-inline val Teal900 get() = color(0x134e4a)
-inline val Cyan50 get() = color(0xecfeff)
-inline val Cyan100 get() = color(0xcffafe)
-inline val Cyan200 get() = color(0xa5f3fc)
-inline val Cyan300 get() = color(0x67e8f9)
-inline val Cyan400 get() = color(0x22d3ee)
-inline val Cyan500 get() = color(0x06b6d4)
-inline val Cyan600 get() = color(0x0891b2)
-inline val Cyan700 get() = color(0x0e7490)
-inline val Cyan800 get() = color(0x155e75)
-inline val Cyan900 get() = color(0x164e63)
-inline val Sky50 get() = color(0xf0f9ff)
-inline val Sky100 get() = color(0xe0f2fe)
-inline val Sky200 get() = color(0xbae6fd)
-inline val Sky300 get() = color(0x7dd3fc)
-inline val Sky400 get() = color(0x38bdf8)
-inline val Sky500 get() = color(0x0ea5e9)
-inline val Sky600 get() = color(0x0284c7)
-inline val Sky700 get() = color(0x0369a1)
-inline val Sky800 get() = color(0x075985)
-inline val Sky900 get() = color(0x0c4a6e)
-inline val Blue50 get() = color(0xeff6ff)
-inline val Blue100 get() = color(0xdbeafe)
-inline val Blue200 get() = color(0xbfdbfe)
-inline val Blue300 get() = color(0x93c5fd)
-inline val Blue400 get() = color(0x60a5fa)
-inline val Blue500 get() = color(0x3b82f6)
-inline val Blue600 get() = color(0x2563eb)
-inline val Blue700 get() = color(0x1d4ed8)
-inline val Blue800 get() = color(0x1e40af)
-inline val Blue900 get() = color(0x1e3a8a)
-inline val Indigo50 get() = color(0xeef2ff)
-inline val Indigo100 get() = color(0xe0e7ff)
-inline val Indigo200 get() = color(0xc7d2fe)
-inline val Indigo300 get() = color(0xa5b4fc)
-inline val Indigo400 get() = color(0x818cf8)
-inline val Indigo500 get() = color(0x6366f1)
-inline val Indigo600 get() = color(0x4f46e5)
-inline val Indigo700 get() = color(0x4338ca)
-inline val Indigo800 get() = color(0x3730a3)
-inline val Indigo900 get() = color(0x312e81)
-inline val Violet50 get() = color(0xf5f3ff)
-inline val Violet100 get() = color(0xede9fe)
-inline val Violet200 get() = color(0xddd6fe)
-inline val Violet300 get() = color(0xc4b5fd)
-inline val Violet400 get() = color(0xa78bfa)
-inline val Violet500 get() = color(0x8b5cf6)
-inline val Violet600 get() = color(0x7c3aed)
-inline val Violet700 get() = color(0x6d28d9)
-inline val Violet800 get() = color(0x5b21b6)
-inline val Violet900 get() = color(0x4c1d95)
-inline val Purple50 get() = color(0xfaf5ff)
-inline val Purple100 get() = color(0xf3e8ff)
-inline val Purple200 get() = color(0xe9d5ff)
-inline val Purple300 get() = color(0xd8b4fe)
-inline val Purple400 get() = color(0xc084fc)
-inline val Purple500 get() = color(0xa855f7)
-inline val Purple600 get() = color(0x9333ea)
-inline val Purple700 get() = color(0x7e22ce)
-inline val Purple800 get() = color(0x6b21a8)
-inline val Purple900 get() = color(0x581c87)
-inline val Fuchsia50 get() = color(0xfdf4ff)
-inline val Fuchsia100 get() = color(0xfae8ff)
-inline val Fuchsia200 get() = color(0xf5d0fe)
-inline val Fuchsia300 get() = color(0xf0abfc)
-inline val Fuchsia400 get() = color(0xe879f9)
-inline val Fuchsia500 get() = color(0xd946ef)
-inline val Fuchsia600 get() = color(0xc026d3)
-inline val Fuchsia700 get() = color(0xa21caf)
-inline val Fuchsia800 get() = color(0x86198f)
-inline val Fuchsia900 get() = color(0x701a75)
-inline val Pink50 get() = color(0xfdf2f8)
-inline val Pink100 get() = color(0xfce7f3)
-inline val Pink200 get() = color(0xfbcfe8)
-inline val Pink300 get() = color(0xf9a8d4)
-inline val Pink400 get() = color(0xf472b6)
-inline val Pink500 get() = color(0xec4899)
-inline val Pink600 get() = color(0xdb2777)
-inline val Pink700 get() = color(0xbe185d)
-inline val Pink800 get() = color(0x9d174d)
-inline val Pink900 get() = color(0x831843)
-inline val Rose50 get() = color(0xfff1f2)
-inline val Rose100 get() = color(0xffe4e6)
-inline val Rose200 get() = color(0xfecdd3)
-inline val Rose300 get() = color(0xfda4af)
-inline val Rose400 get() = color(0xfb7185)
-inline val Rose500 get() = color(0xf43f5e)
-inline val Rose600 get() = color(0xe11d48)
-inline val Rose700 get() = color(0xbe123c)
-inline val Rose800 get() = color(0x9f1239)
-inline val Rose900 get() = color(0x881337)
+@Stable
+val Black = color(0x000000)
+@Stable
+val White = color(0xffffff)
+
+/// Slate
+@Stable
+val Slate50 = color(0xf8fafc)
+@Stable
+val Slate100 = color(0xf1f5f9)
+@Stable
+val Slate200 = color(0xe2e8f0)
+@Stable
+val Slate300 = color(0xcbd5e1)
+@Stable
+val Slate400 = color(0x94a3b8)
+@Stable
+val Slate500 = color(0x64748b)
+@Stable
+val Slate600 = color(0x475569)
+@Stable
+val Slate700 = color(0x334155)
+@Stable
+val Slate800 = color(0x1e293b)
+@Stable
+val Slate900 = color(0x0f172a)
+
+/// Gray
+@Stable
+val Gray50 = color(0xf9fafb)
+@Stable
+val Gray100 = color(0xf3f4f6)
+@Stable
+val Gray200 = color(0xe5e7eb)
+@Stable
+val Gray300 = color(0xd1d5db)
+@Stable
+val Gray400 = color(0x9ca3af)
+@Stable
+val Gray500 = color(0x6b7280)
+@Stable
+val Gray600 = color(0x4b5563)
+@Stable
+val Gray700 = color(0x374151)
+@Stable
+val Gray800 = color(0x1f2937)
+@Stable
+val Gray900 = color(0x111827)
+
+/// Zinc
+@Stable
+val Zinc50 = color(0xfafafa)
+@Stable
+val Zinc100 = color(0xf4f4f5)
+@Stable
+val Zinc200 = color(0xe4e4e7)
+@Stable
+val Zinc300 = color(0xd4d4d8)
+@Stable
+val Zinc400 = color(0xa1a1aa)
+@Stable
+val Zinc500 = color(0x71717a)
+@Stable
+val Zinc600 = color(0x52525b)
+@Stable
+val Zinc700 = color(0x3f3f46)
+@Stable
+val Zinc800 = color(0x27272a)
+@Stable
+val Zinc900 = color(0x18181b)
+
+/// Neutral
+@Stable
+val Neutral50 = color(0xfafafa)
+@Stable
+val Neutral100 = color(0xf5f5f5)
+@Stable
+val Neutral200 = color(0xe5e5e5)
+@Stable
+val Neutral300 = color(0xd4d4d4)
+@Stable
+val Neutral400 = color(0xa3a3a3)
+@Stable
+val Neutral500 = color(0x737373)
+@Stable
+val Neutral600 = color(0x525252)
+@Stable
+val Neutral700 = color(0x404040)
+@Stable
+val Neutral800 = color(0x262626)
+@Stable
+val Neutral900 = color(0x171717)
+
+/// Stone
+@Stable
+val Stone50 = color(0xfafaf9)
+@Stable
+val Stone100 = color(0xf5f5f4)
+@Stable
+val Stone200 = color(0xe7e5e4)
+@Stable
+val Stone300 = color(0xd6d3d1)
+@Stable
+val Stone400 = color(0xa8a29e)
+@Stable
+val Stone500 = color(0x78716c)
+@Stable
+val Stone600 = color(0x57534e)
+@Stable
+val Stone700 = color(0x44403c)
+@Stable
+val Stone800 = color(0x292524)
+@Stable
+val Stone900 = color(0x1c1917)
+
+/// Red
+@Stable
+val Red50 = color(0xfef2f2)
+@Stable
+val Red100 = color(0xfee2e2)
+@Stable
+val Red200 = color(0xfecaca)
+@Stable
+val Red300 = color(0xfca5a5)
+@Stable
+val Red400 = color(0xf87171)
+@Stable
+val Red500 = color(0xef4444)
+@Stable
+val Red600 = color(0xdc2626)
+@Stable
+val Red700 = color(0xb91c1c)
+@Stable
+val Red800 = color(0x991b1b)
+@Stable
+val Red900 = color(0x7f1d1d)
+
+/// Orange
+@Stable
+val Orange50 = color(0xfff7ed)
+@Stable
+val Orange100 = color(0xffedd5)
+@Stable
+val Orange200 = color(0xfed7aa)
+@Stable
+val Orange300 = color(0xfdba74)
+@Stable
+val Orange400 = color(0xfb923c)
+@Stable
+val Orange500 = color(0xf97316)
+@Stable
+val Orange600 = color(0xea580c)
+@Stable
+val Orange700 = color(0xc2410c)
+@Stable
+val Orange800 = color(0x9a3412)
+@Stable
+val Orange900 = color(0x7c2d12)
+
+/// Amber
+@Stable
+val Amber50 = color(0xfffbeb)
+@Stable
+val Amber100 = color(0xfef3c7)
+@Stable
+val Amber200 = color(0xfde68a)
+@Stable
+val Amber300 = color(0xfcd34d)
+@Stable
+val Amber400 = color(0xfbbf24)
+@Stable
+val Amber500 = color(0xf59e0b)
+@Stable
+val Amber600 = color(0xd97706)
+@Stable
+val Amber700 = color(0xb45309)
+@Stable
+val Amber800 = color(0x92400e)
+@Stable
+val Amber900 = color(0x78350f)
+
+/// Yellow
+@Stable
+val Yellow50 = color(0xfefce8)
+@Stable
+val Yellow100 = color(0xfef9c3)
+@Stable
+val Yellow200 = color(0xfef08a)
+@Stable
+val Yellow300 = color(0xfde047)
+@Stable
+val Yellow400 = color(0xfacc15)
+@Stable
+val Yellow500 = color(0xeab308)
+@Stable
+val Yellow600 = color(0xca8a04)
+@Stable
+val Yellow700 = color(0xa16207)
+@Stable
+val Yellow800 = color(0x854d0e)
+@Stable
+val Yellow900 = color(0x713f12)
+
+/// Lime
+@Stable
+val Lime50 = color(0xf7fee7)
+@Stable
+val Lime100 = color(0xecfccb)
+@Stable
+val Lime200 = color(0xd9f99d)
+@Stable
+val Lime300 = color(0xbef264)
+@Stable
+val Lime400 = color(0xa3e635)
+@Stable
+val Lime500 = color(0x84cc16)
+@Stable
+val Lime600 = color(0x65a30d)
+@Stable
+val Lime700 = color(0x4d7c0f)
+@Stable
+val Lime800 = color(0x3f6212)
+@Stable
+val Lime900 = color(0x365314)
+
+/// Green
+@Stable
+val Green50 = color(0xf0fdf4)
+@Stable
+val Green100 = color(0xdcfce7)
+@Stable
+val Green200 = color(0xbbf7d0)
+@Stable
+val Green300 = color(0x86efac)
+@Stable
+val Green400 = color(0x4ade80)
+@Stable
+val Green500 = color(0x22c55e)
+@Stable
+val Green600 = color(0x16a34a)
+@Stable
+val Green700 = color(0x15803d)
+@Stable
+val Green800 = color(0x166534)
+@Stable
+val Green900 = color(0x14532d)
+
+/// Emerald
+@Stable
+val Emerald50 = color(0xecfdf5)
+@Stable
+val Emerald100 = color(0xd1fae5)
+@Stable
+val Emerald200 = color(0xa7f3d0)
+@Stable
+val Emerald300 = color(0x6ee7b7)
+@Stable
+val Emerald400 = color(0x34d399)
+@Stable
+val Emerald500 = color(0x10b981)
+@Stable
+val Emerald600 = color(0x059669)
+@Stable
+val Emerald700 = color(0x047857)
+@Stable
+val Emerald800 = color(0x065f46)
+@Stable
+val Emerald900 = color(0x064e3b)
+
+/// Teal
+@Stable
+val Teal50 = color(0xf0fdfa)
+@Stable
+val Teal100 = color(0xccfbf1)
+@Stable
+val Teal200 = color(0x99f6e4)
+@Stable
+val Teal300 = color(0x5eead4)
+@Stable
+val Teal400 = color(0x2dd4bf)
+@Stable
+val Teal500 = color(0x14b8a6)
+@Stable
+val Teal600 = color(0x0d9488)
+@Stable
+val Teal700 = color(0x0f766e)
+@Stable
+val Teal800 = color(0x115e59)
+@Stable
+val Teal900 = color(0x134e4a)
+
+/// Cyan
+@Stable
+val Cyan50 = color(0xecfeff)
+@Stable
+val Cyan100 = color(0xcffafe)
+@Stable
+val Cyan200 = color(0xa5f3fc)
+@Stable
+val Cyan300 = color(0x67e8f9)
+@Stable
+val Cyan400 = color(0x22d3ee)
+@Stable
+val Cyan500 = color(0x06b6d4)
+@Stable
+val Cyan600 = color(0x0891b2)
+@Stable
+val Cyan700 = color(0x0e7490)
+@Stable
+val Cyan800 = color(0x155e75)
+@Stable
+val Cyan900 = color(0x164e63)
+
+/// Sky
+@Stable
+val Sky50 = color(0xf0f9ff)
+@Stable
+val Sky100 = color(0xe0f2fe)
+@Stable
+val Sky200 = color(0xbae6fd)
+@Stable
+val Sky300 = color(0x7dd3fc)
+@Stable
+val Sky400 = color(0x38bdf8)
+@Stable
+val Sky500 = color(0x0ea5e9)
+@Stable
+val Sky600 = color(0x0284c7)
+@Stable
+val Sky700 = color(0x0369a1)
+@Stable
+val Sky800 = color(0x075985)
+@Stable
+val Sky900 = color(0x0c4a6e)
+
+/// Blue
+@Stable
+val Blue50 = color(0xeff6ff)
+@Stable
+val Blue100 = color(0xdbeafe)
+@Stable
+val Blue200 = color(0xbfdbfe)
+@Stable
+val Blue300 = color(0x93c5fd)
+@Stable
+val Blue400 = color(0x60a5fa)
+@Stable
+val Blue500 = color(0x3b82f6)
+@Stable
+val Blue600 = color(0x2563eb)
+@Stable
+val Blue700 = color(0x1d4ed8)
+@Stable
+val Blue800 = color(0x1e40af)
+@Stable
+val Blue900 = color(0x1e3a8a)
+
+/// Indigo
+@Stable
+val Indigo50 = color(0xeef2ff)
+@Stable
+val Indigo100 = color(0xe0e7ff)
+@Stable
+val Indigo200 = color(0xc7d2fe)
+@Stable
+val Indigo300 = color(0xa5b4fc)
+@Stable
+val Indigo400 = color(0x818cf8)
+@Stable
+val Indigo500 = color(0x6366f1)
+@Stable
+val Indigo600 = color(0x4f46e5)
+@Stable
+val Indigo700 = color(0x4338ca)
+@Stable
+val Indigo800 = color(0x3730a3)
+@Stable
+val Indigo900 = color(0x312e81)
+
+/// Violet
+@Stable
+val Violet50 = color(0xf5f3ff)
+@Stable
+val Violet100 = color(0xede9fe)
+@Stable
+val Violet200 = color(0xddd6fe)
+@Stable
+val Violet300 = color(0xc4b5fd)
+@Stable
+val Violet400 = color(0xa78bfa)
+@Stable
+val Violet500 = color(0x8b5cf6)
+@Stable
+val Violet600 = color(0x7c3aed)
+@Stable
+val Violet700 = color(0x6d28d9)
+@Stable
+val Violet800 = color(0x5b21b6)
+@Stable
+val Violet900 = color(0x4c1d95)
+
+/// Purple
+@Stable
+val Purple50 = color(0xfaf5ff)
+@Stable
+val Purple100 = color(0xf3e8ff)
+@Stable
+val Purple200 = color(0xe9d5ff)
+@Stable
+val Purple300 = color(0xd8b4fe)
+@Stable
+val Purple400 = color(0xc084fc)
+@Stable
+val Purple500 = color(0xa855f7)
+@Stable
+val Purple600 = color(0x9333ea)
+@Stable
+val Purple700 = color(0x7e22ce)
+@Stable
+val Purple800 = color(0x6b21a8)
+@Stable
+val Purple900 = color(0x581c87)
+
+/// Fuchsia
+@Stable
+val Fuchsia50 = color(0xfdf4ff)
+@Stable
+val Fuchsia100 = color(0xfae8ff)
+@Stable
+val Fuchsia200 = color(0xf5d0fe)
+@Stable
+val Fuchsia300 = color(0xf0abfc)
+@Stable
+val Fuchsia400 = color(0xe879f9)
+@Stable
+val Fuchsia500 = color(0xd946ef)
+@Stable
+val Fuchsia600 = color(0xc026d3)
+@Stable
+val Fuchsia700 = color(0xa21caf)
+@Stable
+val Fuchsia800 = color(0x86198f)
+@Stable
+val Fuchsia900 = color(0x701a75)
+
+/// Pink
+@Stable
+val Pink50 = color(0xfdf2f8)
+@Stable
+val Pink100 = color(0xfce7f3)
+@Stable
+val Pink200 = color(0xfbcfe8)
+@Stable
+val Pink300 = color(0xf9a8d4)
+@Stable
+val Pink400 = color(0xf472b6)
+@Stable
+val Pink500 = color(0xec4899)
+@Stable
+val Pink600 = color(0xdb2777)
+@Stable
+val Pink700 = color(0xbe185d)
+@Stable
+val Pink800 = color(0x9d174d)
+@Stable
+val Pink900 = color(0x831843)
+
+/// Rose
+@Stable
+val Rose50 = color(0xfff1f2)
+@Stable
+val Rose100 = color(0xffe4e6)
+@Stable
+val Rose200 = color(0xfecdd3)
+@Stable
+val Rose300 = color(0xfda4af)
+@Stable
+val Rose400 = color(0xfb7185)
+@Stable
+val Rose500 = color(0xf43f5e)
+@Stable
+val Rose600 = color(0xe11d48)
+@Stable
+val Rose700 = color(0xbe123c)
+@Stable
+val Rose800 = color(0x9f1239)
+@Stable
+val Rose900 = color(0x881337)

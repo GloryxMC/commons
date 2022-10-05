@@ -4,13 +4,14 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
     `maven-publish`
+    `java-library`
     java
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 group = "net.gloryx.cat"
-version = "0.1.52-SNAPSHOT"
+version = rootProject.version
 
 repositories {
     mavenCentral()
@@ -40,14 +41,14 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":core"))
-                common.forEach(this::implementation)
+                api(project(":core"))
+                common.forEach(this::api)
             }
         }
         val jvmMain by getting {
             dependencies {
-                desktop.forEach(this::implementation)
-                implementation("com.typesafe:config:+")
+                desktop.forEach(this::api)
+                api("com.typesafe:config:+")
             }
         }
     }
@@ -62,7 +63,12 @@ kotlin {
             }
         }
         repositories {
-            mavenLocal()
+            maven("https://dev.gloryx.net/snap") {
+                credentials(PasswordCredentials::class) {
+                    username = System.getenv("GLORYX_USERNAME")
+                    password = System.getenv("GLORYX_PASSWORD")
+                }
+            }
         }
     }
 }
