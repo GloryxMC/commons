@@ -28,6 +28,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
     compileOnly("gg.essential:universalcraft-1.16.2-forge:234+pull-36")
 
+    implementation("net.kyori:adventure-text-serializer-gson:4.12.0")
     /// Jetpack Compose -> Cat UI
     compileOnly(compose.desktop.common)
 }
